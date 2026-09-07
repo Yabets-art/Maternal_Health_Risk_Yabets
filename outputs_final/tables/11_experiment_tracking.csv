@@ -1,0 +1,8 @@
+Model,Selection Metric,Best CV Score,Train Score at Best,Validation Score at Best,Validation Std at Best,Configurations Evaluated,Best Parameters
+Random Forest,f1_macro,0.8347862502606118,0.9353421081103717,0.8347862502606118,0.029086148694718025,48,"{""model__class_weight"": ""balanced_subsample"", ""model__max_depth"": 16, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 1, ""model__n_estimators"": 400}"
+Gradient Boosting,f1_macro,0.8207617637813301,0.9220608725029695,0.8207617637813301,0.028779166904214528,36,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 200}"
+Decision Tree,f1_macro,0.8142233353619336,0.9355676753089217,0.8142233353619336,0.04308512138621442,24,"{""model__class_weight"": ""balanced"", ""model__max_depth"": null, ""model__min_samples_leaf"": 1}"
+KNN,f1_macro,0.8056947757848942,0.9352683294952634,0.8056947757848942,0.01863630949797667,20,"{""model__n_neighbors"": 15, ""model__p"": 1, ""model__weights"": ""distance""}"
+SVM,f1_macro,0.689490701442732,0.7763379810250586,0.689490701442732,0.0353102736260415,12,"{""model__C"": 10, ""model__class_weight"": ""balanced"", ""model__gamma"": ""scale""}"
+MLP Neural Network,f1_macro,0.6585056964742618,0.6782486575615516,0.6585056964742618,0.03454965373192153,8,"{""model__activation"": ""relu"", ""model__alpha"": 0.0001, ""model__hidden_layer_sizes"": [64], ""model__learning_rate_init"": 0.001}"
+Logistic Regression,f1_macro,0.6179623815658647,0.6320688140573948,0.6179623815658647,0.026203567273315215,6,"{""model__C"": 1, ""model__class_weight"": null}"

@@ -1,0 +1,6 @@
+,Age,Age,Age,Age,Age,Age,SystolicBP,SystolicBP,SystolicBP,SystolicBP,SystolicBP,SystolicBP,DiastolicBP,DiastolicBP,DiastolicBP,DiastolicBP,DiastolicBP,DiastolicBP,BS,BS,BS,BS,BS,BS,BodyTemp,BodyTemp,BodyTemp,BodyTemp,BodyTemp,BodyTemp,HeartRate,HeartRate,HeartRate,HeartRate,HeartRate,HeartRate
+,count,mean,median,std,min,max,count,mean,median,std,min,max,count,mean,median,std,min,max,count,mean,median,std,min,max,count,mean,median,std,min,max,count,mean,median,std,min,max
+RiskLevel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+low risk,406,26.869,22.0,13.122,10,70,406,105.867,120.0,15.894,70,129,406,72.534,75.0,13.054,49,100,406,7.22,7.5,0.646,6.0,11.0,406,98.369,98.0,1.109,98.0,103.0,406,72.771,70.0,8.293,7,88
+mid risk,336,28.363,25.0,12.553,10,60,336,113.155,120.0,14.983,70,140,336,74.232,75.0,11.49,50,100,336,7.796,7.0,2.286,6.0,18.0,336,98.833,98.0,1.434,98.0,103.0,336,74.176,76.0,6.767,60,88
+high risk,272,36.217,35.0,13.032,12,65,272,124.195,130.0,20.227,83,160,272,85.074,90.0,14.112,60,100,272,12.123,11.0,4.174,6.1,19.0,272,98.899,98.0,1.559,98.0,103.0,272,76.743,77.0,8.698,60,90

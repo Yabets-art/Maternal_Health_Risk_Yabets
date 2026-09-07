@@ -1,0 +1,2 @@
+Selected Model,Selection Metric,Best CV Macro F1,Test Accuracy,Test Balanced Accuracy,Test Macro F1,Test ROC-AUC OvR Macro,Test Average Precision Macro,Raw Rows,Analysis Rows
+Random Forest,f1_macro,0.8347862502606118,0.8472906403940886,0.8573585495641881,0.8524251805985553,0.9530887405238327,0.9204407093788519,1014,1014

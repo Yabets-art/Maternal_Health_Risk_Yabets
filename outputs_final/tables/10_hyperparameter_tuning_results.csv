@@ -1,0 +1,8 @@
+Model,Best CV Macro F1,Tuning Time Seconds,Best Parameters
+Random Forest,0.8347862502606118,44.18900179862976,"{""model__class_weight"": ""balanced_subsample"", ""model__max_depth"": 16, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 1, ""model__n_estimators"": 400}"
+Gradient Boosting,0.8207617637813301,13.502148151397705,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 200}"
+Decision Tree,0.8142233353619336,0.6313991546630859,"{""model__class_weight"": ""balanced"", ""model__max_depth"": null, ""model__min_samples_leaf"": 1}"
+KNN,0.8056947757848942,0.5585081577301025,"{""model__n_neighbors"": 15, ""model__p"": 1, ""model__weights"": ""distance""}"
+SVM,0.689490701442732,1.4433276653289795,"{""model__C"": 10, ""model__class_weight"": ""balanced"", ""model__gamma"": ""scale""}"
+MLP Neural Network,0.6585056964742618,2.1606826782226562,"{""model__activation"": ""relu"", ""model__alpha"": 0.0001, ""model__hidden_layer_sizes"": [64], ""model__learning_rate_init"": 0.001}"
+Logistic Regression,0.6179623815658647,6.094325542449951,"{""model__C"": 1, ""model__class_weight"": null}"

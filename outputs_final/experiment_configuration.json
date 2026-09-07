@@ -1,0 +1,42 @@
+{
+  "random_state": 42,
+  "test_size": 0.2,
+  "cv_folds": 5,
+  "selection_metric": "f1_macro",
+  "features": [
+    "Age",
+    "SystolicBP",
+    "DiastolicBP",
+    "BS",
+    "BodyTemp",
+    "HeartRate",
+    "PulsePressure",
+    "MeanArterialPressure",
+    "SystolicDiastolicRatio",
+    "AgeGroup_adult",
+    "AgeGroup_advanced_maternal_age"
+  ],
+  "engineered_features": [
+    "PulsePressure",
+    "MeanArterialPressure",
+    "SystolicDiastolicRatio",
+    "AgeGroup_adult",
+    "AgeGroup_advanced_maternal_age"
+  ],
+  "target": "RiskLevel",
+  "ordinal_mapping": {
+    "low risk": 0,
+    "mid risk": 1,
+    "high risk": 2
+  },
+  "models": [
+    "Logistic Regression",
+    "Decision Tree",
+    "KNN",
+    "SVM",
+    "Random Forest",
+    "Gradient Boosting",
+    "MLP Neural Network"
+  ],
+  "duplicate_policy": "Exact duplicate measurement rows retained because no patient or encounter identifier is available."
+}

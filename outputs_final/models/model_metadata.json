@@ -1,0 +1,55 @@
+{
+  "project_title": "Predictive Modeling and Data Engineering Pipelines for Maternal Health Risk Stratification",
+  "dataset": "Maternal Health Risk Data Set.csv",
+  "raw_rows": 1014,
+  "analysis_rows": 1014,
+  "target": "RiskLevel",
+  "classes": [
+    "low risk",
+    "mid risk",
+    "high risk"
+  ],
+  "ordinal_mapping": {
+    "low risk": 0,
+    "mid risk": 1,
+    "high risk": 2
+  },
+  "features": [
+    "Age",
+    "SystolicBP",
+    "DiastolicBP",
+    "BS",
+    "BodyTemp",
+    "HeartRate",
+    "PulsePressure",
+    "MeanArterialPressure",
+    "SystolicDiastolicRatio",
+    "AgeGroup_adult",
+    "AgeGroup_advanced_maternal_age"
+  ],
+  "engineered_features": [
+    "PulsePressure",
+    "MeanArterialPressure",
+    "SystolicDiastolicRatio",
+    "AgeGroup_adult",
+    "AgeGroup_advanced_maternal_age"
+  ],
+  "selected_model": "Random Forest",
+  "selection_metric": "f1_macro",
+  "selected_model_best_cv_macro_f1": 0.8347862502606118,
+  "selected_model_test_metrics": {
+    "Accuracy": 0.8472906403940886,
+    "Balanced Accuracy": 0.8573585495641881,
+    "Precision Macro": 0.8491934823548677,
+    "Recall Macro": 0.8573585495641881,
+    "F1 Macro": 0.8524251805985553,
+    "F1 Weighted": 0.8465331686213505,
+    "ROC-AUC OvR Macro": 0.9530887405238327,
+    "ROC-AUC OvR Weighted": 0.95080357552093,
+    "Average Precision Macro": 0.9204407093788519
+  },
+  "random_state": 42,
+  "test_size": 0.2,
+  "cv_folds": 5,
+  "duplicate_measurement_rows_retained": 562
+}

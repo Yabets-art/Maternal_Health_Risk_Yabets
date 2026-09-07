@@ -1,0 +1,8 @@
+,Data Type,Missing Values
+Age,int64,0
+SystolicBP,int64,0
+DiastolicBP,int64,0
+BS,float64,0
+BodyTemp,float64,0
+HeartRate,int64,0
+RiskLevel,str,0
