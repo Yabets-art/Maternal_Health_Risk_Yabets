@@ -175,6 +175,8 @@ print(f"Predicted Risk Level: {risk_labels[prediction[0]]}")
 
 ## 🌐 Run the Frontend
 
+### 🚀 [Open the Materna Frontend](https://maternal-health-risk-pridiction.streamlit.app/#risk-categories)
+
 The repository includes a professional Streamlit frontend in `Front end/app.py`. It loads the packaged final Random Forest model from `outputs_final/models/maternal_risk_final_model.joblib`, calculates the engineered features, and displays the model's class probabilities.
 
 ### Local
@@ -183,17 +185,6 @@ The repository includes a professional Streamlit frontend in `Front end/app.py`.
 pip install -r requirements.txt
 streamlit run "Front end/app.py"
 ```
-
-### Free deployment with Streamlit Community Cloud
-
-1. Open [Streamlit Community Cloud](https://share.streamlit.io/) and sign in with the GitHub account that owns this repository.
-2. Select `Yabets-art/Maternal_Health_Risk_Yabets`, choose `main` (or the frontend branch), and set the main file to `Front end/app.py`.
-3. In **Advanced settings**, set the Python version to 3.12 if prompted, then deploy.
-4. Streamlit will install the root `requirements.txt` and serve the frontend using the committed model artifact. Keeping dependencies at the repository root avoids path parsing issues with the space in the `Front end` directory name.
-
-After deployment, Streamlit will provide the live public URL. The URL is not created by GitHub pull requests; it must be provisioned once from the Streamlit Community Cloud dashboard.
-
-The frontend is a screening-support interface only. It must not be used as a standalone diagnosis or emergency service.
 
 ---
 
