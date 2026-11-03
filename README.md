@@ -180,7 +180,7 @@ The repository includes a professional Streamlit frontend in `Front end/app.py`.
 ### Local
 
 ```bash
-pip install -r "Front end/requirements.txt"
+pip install -r requirements.txt
 streamlit run "Front end/app.py"
 ```
 
@@ -189,7 +189,7 @@ streamlit run "Front end/app.py"
 1. Open [Streamlit Community Cloud](https://share.streamlit.io/) and sign in with the GitHub account that owns this repository.
 2. Select `Yabets-art/Maternal_Health_Risk_Yabets`, choose `main` (or the frontend branch), and set the main file to `Front end/app.py`.
 3. In **Advanced settings**, set the Python version to 3.12 if prompted, then deploy.
-4. Streamlit will install `Front end/requirements.txt` and serve the frontend using the committed model artifact.
+4. Streamlit will install the root `requirements.txt` and serve the frontend using the committed model artifact. Keeping dependencies at the repository root avoids path parsing issues with the space in the `Front end` directory name.
 
 After deployment, Streamlit will provide the live public URL. The URL is not created by GitHub pull requests; it must be provisioned once from the Streamlit Community Cloud dashboard.
 
