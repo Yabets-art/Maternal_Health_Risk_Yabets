@@ -10,11 +10,23 @@ MODEL_PATH = ROOT / "outputs_final" / "models" / "maternal_risk_final_model.jobl
 METADATA_PATH = ROOT / "outputs_final" / "models" / "model_metadata.json"
 
 RISK_LABELS = {
-    "low risk": "Low Risk",
-    "mid risk": "Mid Risk",
+    0: "Minimum Risk",
+    1: "Medium Risk",
+    2: "High Risk",
+    "0": "Minimum Risk",
+    "1": "Medium Risk",
+    "2": "High Risk",
+    "low risk": "Minimum Risk",
+    "mid risk": "Medium Risk",
     "high risk": "High Risk",
 }
 RISK_COLORS = {
+    0: "#3bb273",
+    1: "#e9a23b",
+    2: "#e45756",
+    "0": "#3bb273",
+    "1": "#e9a23b",
+    "2": "#e45756",
     "low risk": "#3bb273",
     "mid risk": "#e9a23b",
     "high risk": "#e45756",
@@ -51,9 +63,19 @@ def build_features(age, systolic_bp, diastolic_bp, blood_sugar, body_temp, heart
     )
 
 
+def risk_key(label):
+    value = getattr(label, "item", lambda: label)()
+    if isinstance(value, float) and value.is_integer():
+        return int(value)
+    if isinstance(value, int):
+        return value
+    return str(value).strip().lower()
+
+
 def risk_badge(label):
-    color = RISK_COLORS.get(label, "#2a9d8f")
-    title = RISK_LABELS.get(label, label.title())
+    key = risk_key(label)
+    color = RISK_COLORS.get(key, "#2a9d8f")
+    title = RISK_LABELS.get(key, str(label).title())
     st.markdown(
         f"""
         <div class="risk-result" style="border-color:{color};">
@@ -92,7 +114,9 @@ st.markdown(
     .risk-kicker { color:var(--muted); font-size:.72rem; font-weight:700; letter-spacing:.12em; }
     .risk-title { font-family:'Playfair Display',serif; font-size:2.1rem; font-weight:700; margin:.25rem 0; }
     .risk-copy { color:var(--muted); font-size:.9rem; }
-    .disclaimer { color:#6f5c2d; background:#fff8df; border:1px solid #f1df9b; padding:.75rem 1rem; border-radius:12px; font-size:.83rem; line-height:1.5; }
+    .care-note { color:#244b62; background:#e9f5f7; border:1px solid #b8dfe3; padding:.72rem 1rem; border-radius:12px; font-size:.86rem; line-height:1.5; }
+    .stNumberInput input { color:#ffffff !important; background-color:#17324d !important; -webkit-text-fill-color:#ffffff !important; }
+    .stNumberInput input:focus { border-color:#74d4cf !important; box-shadow:0 0 0 .15rem rgba(116,212,207,.2) !important; }
     section[data-testid="stSidebar"] { background:#17324d; }
     section[data-testid="stSidebar"] * { color:#f5fbfb !important; }
     .stButton > button { border-radius:10px; font-weight:700; padding:.65rem 1rem; }
@@ -115,7 +139,7 @@ with st.sidebar:
     st.markdown("### Navigation")
     page = st.radio("Go to", ["Risk assessment", "Model card", "About"], label_visibility="collapsed")
     st.markdown("---")
-    st.caption("Educational clinical decision-support prototype")
+    st.caption("Designed for use with healthcare professionals")
 
 if page == "Risk assessment":
     st.markdown(
@@ -129,7 +153,7 @@ if page == "Risk assessment":
         unsafe_allow_html=True,
     )
     st.markdown(
-        '<div class="disclaimer">⚕ <b>Important:</b> This tool is for educational screening support only. It is not a diagnosis, emergency service, or substitute for assessment by a qualified healthcare professional.</div>',
+        '<div class="care-note"><b>Use with a healthcare professional.</b> Review the assessment alongside clinical history, examination, and local care protocols.</div>',
         unsafe_allow_html=True,
     )
     st.write("")
@@ -162,12 +186,12 @@ if page == "Risk assessment":
                 features = build_features(age, systolic_bp, diastolic_bp, blood_sugar, body_temp, heart_rate)
                 prediction = model.predict(features)[0]
                 probabilities = model.predict_proba(features)[0]
-                predicted_label = str(prediction).lower()
+                predicted_label = risk_key(prediction)
                 risk_badge(predicted_label)
                 st.markdown("**Model confidence distribution**")
                 for label, probability in zip(model.classes_, probabilities):
-                    clean_label = str(label).lower()
-                    st.progress(float(probability), text=f"{RISK_LABELS.get(clean_label, str(label).title())}  ·  {probability:.1%}")
+                    label_key = risk_key(label)
+                    st.progress(float(probability), text=f"{RISK_LABELS.get(label_key, str(label).title())}  ·  {probability:.1%}")
                 with st.expander("Derived clinical features"):
                     st.dataframe(
                         features[["PulsePressure", "MeanArterialPressure", "SystolicDiastolicRatio"]].rename(
@@ -225,8 +249,8 @@ elif page == "Model card":
 else:
     st.markdown('<div class="hero"><div class="eyebrow">ABOUT THE PROJECT</div><h1>Built for clarity,<br>not certainty.</h1><p>Materna is a presentation layer for the completed Maternal Health Risk project, making the final selected model easier to explore responsibly.</p></div>', unsafe_allow_html=True)
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("Clinical and academic notice")
-    st.write("This application is an educational predictive-modeling demonstration. It should not be used as a standalone diagnostic tool or to make treatment decisions. Always follow local clinical protocols and seek professional care for concerning symptoms.")
+    st.subheader("Designed for clinical support")
+    st.write("Use this assessment with a healthcare professional, together with clinical history, examination, and local care protocols.")
     st.subheader("Risk categories")
     st.write("The model classifies observations as Low Risk, Mid Risk, or High Risk. These labels represent the training dataset’s categories and are not a replacement for a clinician’s assessment.")
     st.markdown("</div>", unsafe_allow_html=True)
