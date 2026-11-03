@@ -146,8 +146,7 @@ if page == "Risk assessment":
         """
         <div class="hero">
           <div class="eyebrow">MATERNAL HEALTH INTELLIGENCE</div>
-          <h1>A calmer way to<br>understand risk.</h1>
-          <p>Enter a small set of routine maternal observations to receive an immediate risk stratification from the project’s final Random Forest model.</p>
+          <h1>Maternal risk<br>assessment.</h1>
         </div>
         """,
         unsafe_allow_html=True,
@@ -247,9 +246,13 @@ elif page == "Model card":
     st.markdown("</div>", unsafe_allow_html=True)
 
 else:
-    st.markdown('<div class="hero"><div class="eyebrow">ABOUT THE PROJECT</div><h1>Built for clarity,<br>not certainty.</h1><p>Materna is a presentation layer for the completed Maternal Health Risk project, making the final selected model easier to explore responsibly.</p></div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero"><div class="eyebrow">ABOUT THE PROJECT</div><h1>Maternal health<br>risk assessment.</h1></div>', unsafe_allow_html=True)
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.subheader("Designed for clinical support")
+    st.subheader("Developer")
+    st.markdown("**Yabets Desalegn**")
+    st.write("Data science and machine learning project developer.")
+    st.markdown("[GitHub profile](https://github.com/Yabets-art)  ·  [Project repository](https://github.com/Yabets-art/Maternal_Health_Risk_Yabets)")
+    st.subheader("Clinical use")
     st.write("Use this assessment with a healthcare professional, together with clinical history, examination, and local care protocols.")
     st.subheader("Risk categories")
     st.write("The model classifies observations as Low Risk, Mid Risk, or High Risk. These labels represent the training dataset’s categories and are not a replacement for a clinician’s assessment.")
